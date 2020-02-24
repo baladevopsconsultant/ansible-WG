@@ -3,7 +3,7 @@
   hosts: node1
   tasks:
    - name: Say HELLO world
-     command: echo "Successfully Integrated Ansible-GIT-Jenkins"
+     command: echo "Successfully Ansible-GIT-Jenkins integration is done"
      register: output
    - debug:
       var: output
