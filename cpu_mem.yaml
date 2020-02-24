@@ -1,0 +1,18 @@
+---
+- name: CPU and MEM info
+  hosts: all
+  tasks:
+   - name: Create the user
+     user:
+      name: devops
+   - name: Create a file
+     file:
+      path: /tmp/basha
+      owner: devops
+      state: touch
+   - name:
+     copy:
+      content: |
+       {{ansible_memfree_mb}} {{ansible_processor_vcpus}}
+      dest: /tmp/basha
+

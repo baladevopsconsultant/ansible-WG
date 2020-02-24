@@ -1,0 +1,9 @@
+---
+- name: Copy the file from ansible to nodes
+  hosts: webserver
+  tasks:
+   - name: copy the sample file from source to dest
+     copy:
+      src: /tmp/sample.txt
+      dest: /tmp/sample123.txt
+      remote_src: yes

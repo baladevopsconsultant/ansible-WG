@@ -1,0 +1,24 @@
+---
+- name: create a file name hosts
+  hosts: node1,node2
+  vars_prompt:
+   - name: filename
+     prompt: "Enter the filename"
+     private: no
+  tasks:
+   - name: Create a file
+     file:
+      path: /tmp/{{filename}}
+      state: touch
+   - name: adding the content
+     copy:
+      content: |
+       "The hostname is {{ansible_nodename}}"
+      dest: /tmp/{{filename}}
+     notify:
+      - restart xinetd
+  handlers:
+   - name: restart xinetd
+     service:
+      name: xinetd
+      state: restarted

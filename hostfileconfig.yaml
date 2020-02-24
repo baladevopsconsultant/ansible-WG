@@ -1,0 +1,9 @@
+---
+- name: Copying the file from src to dest for host
+  hosts: all
+  tasks:
+   - name: copying the content to destined with hosts details
+     template:
+      src: host1.j2
+      dest: /tmp/
+

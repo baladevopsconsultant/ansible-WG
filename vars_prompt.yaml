@@ -1,0 +1,12 @@
+---
+- name: Input from my end
+  hosts: node1
+  vars_prompt:
+   - name: package
+     prompt: "Enter the package name"
+     private: no
+  tasks:
+   - name: Install the given input package
+     yum:
+      name: "{{ package }}"
+      state: present

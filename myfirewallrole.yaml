@@ -1,0 +1,5 @@
+---
+- name: role myfirewall
+  hosts: db
+  roles:
+   - myfirewall

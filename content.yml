@@ -1,0 +1,10 @@
+---
+- name: Content wiriting
+  hosts: webserver
+  tasks:
+   - name: wiritin contents
+     copy:
+      content: |
+       The content is bulk 
+       Tippu is Hero
+      dest: /tmp/content.txt

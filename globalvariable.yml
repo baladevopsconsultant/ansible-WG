@@ -1,0 +1,12 @@
+---
+- name: local variable call
+  hosts: all
+  tasks:
+   - name: Install package wget
+     yum:
+      name: "{{ package }}"
+      state: present
+   - name: Install package ntp
+     yum:
+      name: "{{package1}}"
+      state: present

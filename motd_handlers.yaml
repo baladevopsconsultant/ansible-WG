@@ -1,0 +1,23 @@
+---
+- name: Restart xinetd
+  hosts: node1,node2
+  vars:
+   - motd: /etc/motd
+  tasks:
+   - name: Install the package 
+     yum:
+      name: xinetd
+      state: present
+   - name: content add 
+     copy:
+      content: |
+       Hello World
+      dest: "{{ motd }}"
+     notify:
+      - restart xinetd
+  handlers:
+   - name: restart xinetd
+     service:
+      name: xinetd
+      state: started
+

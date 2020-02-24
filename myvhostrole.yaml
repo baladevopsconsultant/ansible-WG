@@ -1,0 +1,5 @@
+---
+- name: calling myvhosts
+  hosts: db
+  roles:
+   - myvhost

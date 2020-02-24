@@ -1,0 +1,33 @@
+---
+- name: tagging the plays
+  hosts: node1
+  tags:
+   - package1
+  tasks:
+   - name: tag name package
+     yum:
+      name: ntp
+      state: present
+#     tags:
+#      - web
+   - name: wget name package
+     yum:
+      name: "{{package1}}"
+      state: present
+#     tags:
+#      - package
+- name: tagging the nginx,httpd plays
+  hosts: node2
+  tags:
+   - package2
+  tasks:
+   - name: install ntp
+     yum:
+      name: nginx
+      state: present
+   - name: install httpd
+     yum:
+      name: httpd
+      state: present
+#     tags:
+#      - package
