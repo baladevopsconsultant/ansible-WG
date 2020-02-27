@@ -1,0 +1,9 @@
+---
+- name: Creating new branch and check in to integrate with jenkins
+  hosts: node1,node2
+  tasks:
+   - name: New branch
+     command: echo "Hey I am from new branch"
+     register: output
+   - debug:
+      var: output
