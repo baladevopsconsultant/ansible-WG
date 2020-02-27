@@ -3,7 +3,7 @@
   hosts: node1,node2
   tasks:
    - name: New branch
-     command: echo "Hey I am from new branch"
+     command: echo "Hey I am from new branch - getting started to integrate with Jenkins"
      register: output
    - debug:
       var: output
